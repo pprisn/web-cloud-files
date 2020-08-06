@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+-->
+<!------ Include the above in your HEAD tag ---------->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Форма загрузки файла</title>
+  </head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="#">Web-Сloud-Files</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navb" class="navbar-collapse collapse hide">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/files/dashboard">Мой каталог файлов</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/register"><span class="fas fa-user"></span> Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h3>Форма загрузки файлов на сервер.</h3>
+
+
+<div class="upload-detail">
+<form class="form-horizontal" action='/files/dashboard/upload/create' method="POST" enctype="multipart/form-data">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Пользователь <%= user%></legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="filedata">Выбор файла</label>
+      <div class="controls">
+        <input type="file" id="filedata" name="filedata" placeholder="Имя" class="input-xlarge">
+        <p class="help-block">Выбрать файл для загрузки</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Describe -->
+      <label class="control-label" for="describe">Описание файла</label>
+      <div class="controls">
+        <input type="text" id="describe" name="describe" placeholder="Описание" class="input-xlarge">
+        <p class="help-block">Опишите назначение файла</p>
+      </div>
+    </div>
+ 
+   <div class="control-group">
+      <!-- Button -->
+   <div class="controls">
+        <button class="btn btn-success">Загрузить</button>
+   </div>
+   </div>
+  </fieldset>
+  <a href="/files/dashboard">Перейти к каталогу файлов</a>
+</form>
+</div>
+</body>
+</html>

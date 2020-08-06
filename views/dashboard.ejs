@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   </style>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <title>Dashboard</title>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="#">Web-Сloud-Files</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navb" class="navbar-collapse collapse hide">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Главная</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/logout"><span class="fas fa-user"></span>Выход</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h3>Каталог пользователя <%= user %></h3>
+<div class="container" id="page">
+<div class="table-data">
+    <div class="list-title">
+	<div id="sidebar">
+		<div class="portlet-content">
+		<div class="portlet-title"><h5>Меню действий<h5></div>
+  			<ul class="operations" id="yw2">
+				<li>
+                                  <a href="/files/dashboard/upload/form">Загрузить файл в систему</a>
+				</li>
+				<li>
+                                   <a href="/files/dashboard/reportxml">Отчет в формате Xml</a>
+                       		</li>
+				<li>
+                                    <a href="/files/dashboard/reportxlsx">Отчет в формате Xlsx</a>
+				</li>
+
+			</ul>
+                </div>
+		
+	</div>
+   </div>
+   <!-- <br><br> -->
+    <table id="table_id" class="cell-border compact" style="width:100%" >
+       <thead>
+        <tr>
+            <th>Ид.</th>
+            <th>Наименование файла</th>
+            <th>Краткое описание</th>
+            <th>Дата записи</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+        if(fetchData.length!=0){
+        var i=1;
+        fetchData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.id; %></td>
+            <td><a href="/files/dashboard/sendfile/<%=data.id%>"><%=data.name %></a></td>
+            <td><%=data.describe %></td>
+            <td><%=data.created_at_f %></td>
+            <!-- <td><a href="/files/dashboard/sendfile/<%=data.id%>">Скачать</a></td> -->
+            <td><a href="/files/dashboard/delete/<%=data.id%>">Удалить</a></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+       </tbody>
+       <tfoot>
+            <tr>
+            <th>Ид.</th>
+            <th>Наименование файла</th>
+            <th>Краткое описание</th>
+            <th>Дата записи</th>
+            <th>Удалить</th>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" >
+$(document).ready(function() {
+    $('#table_id').DataTable({
+    "language": {
+    "url": "/static/DataTables/Russian.json"
+    },
+    "processing": true,
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ],
+    "bPaginate": true,
+    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+    });
+} );
+</script>
+</html>
