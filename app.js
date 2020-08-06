@@ -12,7 +12,7 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var fs = require("fs");
 const multer  = require("multer");
 
 const app = express();
@@ -60,6 +60,13 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/static',express.static(__dirname + '/public'));
 
+//init directory for uploads
+fs.mkdir(__dirname+'/public/uploads', function(err){
+    if(err) {
+     } else {
+     console.log('New directory successfully created',__dirname+'./public/uploads')
+  }
+});
 
 
 /////// multer config
