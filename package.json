@@ -1,0 +1,33 @@
+{
+  "name": "p2-crud-db",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-ensure-login": "^0.1.1",
+    "connect-pg-simple": "^6.1.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "exceljs": "^4.1.1",
+    "express": "^4.16.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg": "^8.3.0",
+    "winston": "^3.3.3",
+    "xmlbuilder": "^15.1.1"
+  },
+  "author": "Sergey Popurey <pprisn@yandex.ru>",
+  "license": "ISC"
+}
