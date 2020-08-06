@@ -40,7 +40,7 @@ module.exports={
     try {
 //	     console.log('req.file',req.file);
              data= fs.readFileSync(filedata.path,'utf8');
-             console.log('sync readFile',filedata.path);
+//             console.log('sync readFile',filedata.path);
              const user_id = req.session.passport.user.id;
              const uploadDetails= req.body;
              await filesModel.insertFile(user_id,req.file, uploadDetails, function(data){
@@ -111,7 +111,7 @@ module.exports={
      const user_id = req.session.passport.user.id;
      dirPath = __dirname+'/../public/uploads/'+user_id+'_'+ Date.now()+'.xlsx';
      filesModel.fetchFiles(user_id, function(data){
-       console.log('data in fetchFiles',data)
+//       console.log('data in fetchFiles',data)
        let workbook = new Excel.Workbook()
        let worksheet = workbook.addWorksheet('Dashboard')
 
